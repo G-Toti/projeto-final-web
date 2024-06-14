@@ -14,5 +14,9 @@ app.use(cors());
 app.use("/hello", helloRouter);
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://${process.env.SERVER_HOST}:${port}`);
+  console.log(
+    `Servidor rodando em http://${
+      process.env.SERVER_HOST ?? "localhost"
+    }:${port}`
+  );
 });
