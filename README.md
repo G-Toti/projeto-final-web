@@ -73,6 +73,7 @@ Por fim, o site terá uma página de apresentação que explicará seu funcionam
 - Tailwind
 - Axios
 - Embla Carousel
+- Spotify API
 
 ## Processo de desenvolvimento do projeto
 
