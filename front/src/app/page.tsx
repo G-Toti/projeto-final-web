@@ -3,6 +3,7 @@
 import { Header } from "./components/header";
 import { Home } from "./components/home";
 import { Footer } from "./components/footer";
+import { Seção } from "./components/top5";
 
 const page = () => {
   return (
@@ -10,6 +11,7 @@ const page = () => {
       <Header />
       <div>
         <Home />
+        <Seção />
       </div>
       <Footer />
     </main>
