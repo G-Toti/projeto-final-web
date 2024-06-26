@@ -3,6 +3,7 @@ import cors from "cors";
 import { config } from "dotenv";
 
 import helloRouter from "./routes/hello.routes.js";
+import userRouter from "./routes/user.routes.js";
 
 config();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(json());
 
 app.use("/hello", helloRouter);
+app.use("/user", userRouter);
 
 app.listen(port, () => {
   console.log(
