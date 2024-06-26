@@ -1,0 +1,9 @@
+[
+  {
+    "id": 0,
+    "titulo": "exemplo de titulo",
+    "corpo": "exemplo de corpo",
+    "nota": 0,
+    "musica_id": "id_da_musica"
+  }
+]

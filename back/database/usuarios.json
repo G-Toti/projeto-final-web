@@ -1,0 +1,10 @@
+[
+  {
+    "id": 0,
+    "nome": "usuario_exemplo",
+    "email": "exemplo@email.com",
+    "senha": "senhagenerica1234",
+    "foto": "",
+    "avaliacoes": []
+  }
+]
