@@ -14,7 +14,7 @@ app.use(cors());
 app.use(json());
 
 app.use("/hello", helloRouter);
-app.use("/user", userRouter);
+app.use("/user", userRouter); // Utiliza as rotas do user router
 
 app.listen(port, () => {
   console.log(
