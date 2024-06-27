@@ -1,0 +1,8 @@
+{
+    "ignore": [
+            "database/*"
+    ],
+    "watch": [
+        "*.*"
+    ]
+}
