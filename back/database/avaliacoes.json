@@ -4,6 +4,7 @@
     "titulo": "exemplo de titulo",
     "corpo": "exemplo de corpo",
     "nota": 0,
-    "musica_id": "id_da_musica"
+    "musica_id": "id_da_musica",
+    "usuario_id": "id_do_usuario"
   }
 ]
