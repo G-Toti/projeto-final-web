@@ -2,20 +2,20 @@ import React from "react";
 
 export const Home = () => {
   return (
-    <section id="home" className="pt-20">
-      <div className="flex flex-col justify-center items-center  text-gray-100">
+    <section id="home" className="pt-20 text-gray-100 sm:text-sm lg:text-xl">
+      <div className="flex flex-col justify-center items-center ">
         <img
           className="opacity-100"
           src=".\img\equalizador2.jpg"
           alt="ESCOLHER LEGENDA"
         />
-        <div className="flex flex-col gap-5 absolute">
-          <div>
+        <div className="flex flex-col gap-5 absolute p-4">
+          <div className="flex flex-col gap-5">
             <h1 className="flex justify-start font-bold text-2xl">
               Conheça as músicas do momento!
             </h1>
-            <p className="font-bold">
-              Ouça suas músicas favoritas, avalie-as e amplie seu repertório
+            <p>
+              Ouça suas músicas favoritas, avalie-as, amplie seu repertório
               musical! Faça parte da comunidade HGBC Music!
             </p>
           </div>
