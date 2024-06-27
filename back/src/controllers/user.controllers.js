@@ -30,7 +30,7 @@ export const createUser = async (req, res) => {
   }
 
   // gera o id
-  const id = dataBase.length;
+  const id = dataBase[dataBase.length - 1].id + 1;
 
   // encripta a senha
   const salt = await bcrypt.genSalt(10);
@@ -52,8 +52,8 @@ export const createUser = async (req, res) => {
 
   // gera o token
   const token = getToken({
+    id,
     email,
-    encryptedPassword,
   });
 
   // devolve o token
@@ -104,8 +104,8 @@ export const login = async (req, res) => {
   }
 
   const token = getToken({
+    id: user.id,
     email,
-    senha,
   });
 
   // devolve o token

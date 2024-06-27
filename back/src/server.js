@@ -4,6 +4,8 @@ import { config } from "dotenv";
 
 import helloRouter from "./routes/hello.routes.js";
 import userRouter from "./routes/user.routes.js";
+import ratingRouter from "./routes/avaliacoes.routes.js";
+import authBaseUser from "./middlewares/auth.middlewares.js";
 
 config();
 
@@ -15,6 +17,7 @@ app.use(json());
 
 app.use("/hello", helloRouter);
 app.use("/user", userRouter); // Utiliza as rotas do user router
+app.use("/rating", authBaseUser, ratingRouter);
 
 app.listen(port, () => {
   console.log(
