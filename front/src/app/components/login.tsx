@@ -2,7 +2,7 @@ import React from "react";
 
 export const Login = () => {
   return (
-    <section className="bg-black text-gray-100 p-20 text-sm">
+    <section className="bg-black text-gray-100 p-20 text-md">
       <div className="flex flex-row justify-center">
         <div className="flex justify-center flex-col p-20 w-2/4">
           <h1 className="text-2xl font-bold pb-2">Fazer Login</h1>
@@ -16,7 +16,7 @@ export const Login = () => {
             />
             <label htmlFor="senha">Senha:</label>
             <input
-              type="text"
+              type="password"
               id="senha"
               placeholder="Digite sua senha"
               className="rounded p-2 text-black"
