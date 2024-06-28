@@ -98,9 +98,47 @@ export const createAvaliacao = (req, res) => {
   });
 };
 
-export const readAvaliacoesMusic = (req, res) => {};
+export const readAvaliacoesMusic = (req, res) => {
+  const { musica_id } = req.params;
 
-export const readAvaliacoesUser = (req, res) => {};
+  const dataBase = getDataBase("avaliacoes.json");
+
+  const reviews = dataBase.filter((element) => element.musica_id === musica_id);
+
+  if (reviews.length === 0) {
+    return res.status(404).json({
+      mensagem: ["Nenhuma avaliação encontrada para a música especificada"],
+      data: [],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Avaliações encontadas com sucesso."],
+    data: reviews,
+  });
+};
+
+export const readAvaliacoesUser = (req, res) => {
+  const { usuario_id } = req.params;
+
+  const reviews = getDataBase("avaliacoes.json");
+
+  const targetReviews = reviews.filter(
+    (element) => element.usuario_id === Number(usuario_id)
+  );
+
+  if (targetReviews.length === 0) {
+    return res.status(404).json({
+      mensagem: ["Nenhuma avaliação encontrada."],
+      data: [],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Avaliações encontradas com sucesso."],
+    data: targetReviews,
+  });
+};
 
 export const updateAvaliacao = (req, res) => {};
 

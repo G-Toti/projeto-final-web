@@ -17,7 +17,7 @@ app.use(json());
 
 app.use("/hello", helloRouter);
 app.use("/user", userRouter); // Utiliza as rotas do user router
-app.use("/rating", authBaseUser, ratingRouter);
+app.use("/review", authBaseUser, ratingRouter);
 
 app.listen(port, () => {
   console.log(

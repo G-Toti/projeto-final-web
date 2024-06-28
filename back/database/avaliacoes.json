@@ -14,5 +14,13 @@
     "nota": 3,
     "musica_id": "id_da_musica",
     "usuario_id": 1
+  },
+  {
+    "id": 2,
+    "titulo": "exemplo de titulo",
+    "corpo": "exemplo de corpo",
+    "nota": 3,
+    "musica_id": "id_da_musica_2",
+    "usuario_id": 1
   }
 ]

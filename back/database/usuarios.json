@@ -13,7 +13,10 @@
     "email": "email@gmail.com",
     "senha": "$2b$10$wX6aandKSt24SZVV.jGbNurddUTKUOubu6HX4kDV8OE8fNFj6Da5y",
     "foto": "",
-    "avaliacoes": [1]
+    "avaliacoes": [
+      1,
+      2
+    ]
   },
   {
     "id": 2,
