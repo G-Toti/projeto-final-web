@@ -2,7 +2,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <header className="bg-black text-gray-100 p-4 sm:text-sm lg:text-xl drop-shadow-lg fixed w-full z-10">
+    <header className="bg-black text-gray-100 p-4 text-md drop-shadow-lg fixed w-full z-10">
       <div className="lg:ml-44 lg:mr-44 ">
         <div className="flex justify-between">
           <div>
