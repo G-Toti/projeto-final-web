@@ -192,3 +192,67 @@ export const updateUser = async (req, res) => {
     mensagem: ["Usuario atualizado com sucesso"],
   });
 };
+
+// como nenhuma informação sensível será passada, essa rota sera aberta para qualquer usuario autenticado
+export const getUser = (req, res) => {
+  const { id } = req.params;
+
+  const usersDB = getDataBase("usuarios.json");
+
+  let targetUser;
+
+  // busca pelo usuário
+  for (let i = 0; i < usersDB.length; i++) {
+    let element = usersDB[i];
+    if (element.id === Number(id)) {
+      targetUser = element;
+      break;
+    }
+  }
+
+  // O usuário não está no banco de dados
+  if (!targetUser) {
+    res.status(404).json({
+      mensagem: ["Usuário não identificado."],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Usuario encontrado com sucesso!"],
+    data: {
+      nome: targetUser.nome,
+      email: targetUser.email,
+      foto: targetUser.foto,
+      avaliacoes: targetUser.avaliacoes,
+    },
+  });
+};
+
+// como nenhuma informação sensível será passada, essa rota sera aberta para qualquer usuario autenticado
+export const getUsers = (req, res) => {
+  const { nome } = req.query;
+
+  const usersDB = getDataBase("usuarios.json");
+
+  // usuarios
+  const targetUsers = usersDB.filter((element) => element.nome.includes(nome));
+
+  // O usuário não está no banco de dados
+  if (targetUsers.length === 0) {
+    res.status(404).json({
+      mensagem: ["Nenhum resultado encontrado."],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Usuarios encontrados com sucesso!"],
+    data: targetUsers.map((user) => {
+      return {
+        nome: user.nome,
+        email: user.email,
+        foto: user.foto,
+        avaliacoes: user.avaliacoes,
+      };
+    }),
+  });
+};

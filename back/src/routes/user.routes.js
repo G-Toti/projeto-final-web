@@ -1,6 +1,8 @@
 import { Router } from "express";
 import {
   createUser,
+  getUser,
+  getUsers,
   login,
   updateUser,
 } from "../controllers/user.controllers.js";
@@ -40,5 +42,7 @@ const upload = multer({
 router.post("/create", createUser); // Cria rota de criar usuario
 router.post("/login", login); // Cria rota de login
 router.put("/:id", authBaseUser, upload.single("foto"), updateUser);
+router.get("/:id", authBaseUser, getUser);
+router.get("/", authBaseUser, getUsers);
 
 export default router;
