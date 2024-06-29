@@ -30,5 +30,14 @@
     "senha": "$2b$10$NrCKqY41V2gk7RmPrmVLS.s7i9Fpp/oSP2pMu4X.z2a36ygEwqbJK",
     "foto": "",
     "avaliacoes": []
+  },
+  
+  {
+    "id": 4,
+    "nome": "zino",
+    "email": "zinolath@gmail.com",
+    "senha": "$2b$10$LpqNmHaM3y90mQWbAd3TDuY79h/zpJv3Qzu2rOus1/IBoxTJvvJiC",
+    "foto": "",
+    "avaliacoes": []
   }
 ]
