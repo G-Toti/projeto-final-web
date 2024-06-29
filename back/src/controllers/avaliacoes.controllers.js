@@ -140,6 +140,130 @@ export const readAvaliacoesUser = (req, res) => {
   });
 };
 
-export const updateAvaliacao = (req, res) => {};
+export const updateAvaliacao = (req, res) => {
+  const { titulo, corpo, nota } = req.body;
+  const { id } = req.params;
 
-export const deleteAvaliacao = (req, res) => {};
+  // lida com erros no formato da requisição
+  const erros400 = [];
+
+  if (typeof titulo !== "string") erros400.push("Titulo deve ser uma string");
+  if (typeof corpo !== "string") erros400.push("Corpo deve ser uma string");
+  if (typeof nota !== "number") erros400.push("Nota deve ser um number");
+
+  if (erros400.length > 0)
+    res.status(400).json({
+      mensagem: erros400,
+    });
+
+  const avaliacoesDB = getDataBase("avaliacoes.json");
+
+  let targetAvaliacao;
+  let targetPosition = avaliacoesDB.length;
+  for (let i = 0; i < avaliacoesDB.length; i++) {
+    let element = avaliacoesDB[i];
+    if (element.id === Number(id)) {
+      targetAvaliacao = element;
+      targetPosition = i;
+      break;
+    }
+  }
+
+  // A avaliação não está no banco de dados
+  if (!targetAvaliacao) {
+    return res.status(404).json({
+      mensagem: ["Avaliação não identificada."],
+    });
+  }
+
+  // O usuário está tentando acessar uma avaliação que pertence a outro usuário
+  if (targetAvaliacao.usuario_id !== req.user.id) {
+    return res.status(403).json({
+      mensagem: [
+        "O usuário está tentando acessar uma avaliação que não o pertence.",
+      ],
+    });
+  }
+
+  const updatedAvaliacao = {
+    ...targetAvaliacao,
+    titulo,
+    corpo,
+    nota,
+  };
+
+  avaliacoesDB[targetPosition] = updatedAvaliacao;
+
+  setDataBase("avaliacoes.json", avaliacoesDB);
+
+  res.status(200).json({
+    mensagem: ["Avaliação alterada com sucesso."],
+  });
+};
+
+export const deleteAvaliacao = (req, res) => {
+  const { id } = req.params;
+
+  const avaliacoesDB = getDataBase("avaliacoes.json");
+
+  let targetAvaliacao;
+  for (let i = 0; i < avaliacoesDB.length; i++) {
+    let element = avaliacoesDB[i];
+    if (element.id === Number(id)) {
+      targetAvaliacao = element;
+      break;
+    }
+  }
+
+  // A avaliação não está no banco de dados
+  if (!targetAvaliacao) {
+    return res.status(404).json({
+      mensagem: ["Avaliação não identificada."],
+    });
+  }
+
+  // O usuário está tentando acessar uma avaliação que pertence a outro usuário
+  if (targetAvaliacao.usuario_id !== req.user.id) {
+    return res.status(403).json({
+      mensagem: [
+        "O usuário está tentando acessar uma avaliação que não o pertence.",
+      ],
+    });
+  }
+
+  const usersDB = getDataBase("usuarios.json");
+
+  // usuario que está fazendo a avaliação e sua posição na base de dados
+  let targetUser;
+  let targetPosition = usersDB.length;
+
+  // busca pelo usuário que vai fazer a avaliação no banco de dados
+  for (let i = 0; i < usersDB.length; i++) {
+    let element = usersDB[i];
+    if (element.id === targetAvaliacao.usuario_id) {
+      targetUser = element;
+      targetPosition = i;
+      break;
+    }
+  }
+
+  // remove a avaliação da lista de avaliações do usuário
+  targetUser.avaliacoes = targetUser.avaliacoes.filter(
+    (element) => element !== targetAvaliacao.id
+  );
+
+  // atualiza o usuário
+  usersDB[targetPosition] = targetUser;
+
+  // remove a avaliação
+  const UpdatedAvaliacoesDB = avaliacoesDB.filter(
+    (element) => element.id !== Number(id)
+  );
+
+  setDataBase("avaliacoes.json", UpdatedAvaliacoesDB);
+  setDataBase("usuarios.json", usersDB);
+
+  res.status(200).json({
+    mensagem: ["Avaliação deletada com sucesso."],
+  });
+};
