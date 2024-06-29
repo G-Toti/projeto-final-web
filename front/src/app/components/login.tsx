@@ -1,4 +1,6 @@
+"use client"
 import React from "react";
+import { server } from "../../../utils/axiosConfig";
 
 export const Login = () => {
   return (
@@ -22,7 +24,7 @@ export const Login = () => {
               className="rounded p-2 text-black"
             />
             <div className="flex flex-wrap pt-2 justify-end">
-              <button className="bg-orange-500 font-bold rounded py-1 w-1/2 hover:bg-orange-700 transition hover:scale-110">
+              <button id="login-button" className="bg-orange-500 font-bold rounded py-1 w-1/2 hover:bg-orange-700 transition hover:scale-110">
                 Entrar
               </button>
             </div>

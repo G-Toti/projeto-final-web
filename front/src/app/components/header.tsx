@@ -14,7 +14,7 @@ export const Header = () => {
           </div>
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
-              <a className="hover:text-gray-400" href="#login">
+              <a className="hover:text-gray-400" href="login">
                 Fazer login
               </a>
             </nav>
