@@ -8,19 +8,27 @@
     "usuario_id": 0
   },
   {
-    "id": 2,
-    "titulo": "exemplo de titulo",
-    "corpo": "exemplo de corpo",
-    "nota": 3,
-    "musica_id": "id_da_musica_2",
-    "usuario_id": 2
+    "id": 1,
+    "titulo": "exemplo de titulo atualizado 2",
+    "corpo": "exemplo de corpo atualizado",
+    "nota": 3.5,
+    "musica_id": "id_da_musica_1",
+    "usuario_id": 1
   },
   {
     "id": 3,
     "titulo": "exemplo de titulo",
     "corpo": "exemplo de corpo",
-    "nota": 3,
+    "nota": 4,
     "musica_id": "id_da_musica_2",
-    "usuario_id": 1
+    "usuario_id": 2
+  },
+  {
+    "id": 4,
+    "titulo": "exemplo de titulo",
+    "corpo": "exemplo de corpo",
+    "nota": 2.5,
+    "musica_id": "id_da_musica_1",
+    "usuario_id": 2
   }
 ]

@@ -103,6 +103,7 @@ export const readAvaliacoesMusic = (req, res) => {
 
   const dataBase = getDataBase("avaliacoes.json");
 
+  // pega so os elementos que tem o musica_id compativel nele
   const reviews = dataBase.filter((element) => element.musica_id === musica_id);
 
   if (reviews.length === 0) {
@@ -123,6 +124,7 @@ export const readAvaliacoesUser = (req, res) => {
 
   const reviews = getDataBase("avaliacoes.json");
 
+  // pega so os elementos que tem o usuario_id compativel nele
   const targetReviews = reviews.filter(
     (element) => element.usuario_id === Number(usuario_id)
   );

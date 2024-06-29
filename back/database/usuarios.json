@@ -9,38 +9,23 @@
   },
   {
     "id": 1,
-    "nome": "Usuario teste",
+    "nome": "Nome Show de Bola",
     "email": "email@gmail.com",
-    "senha": "$2b$10$wX6aandKSt24SZVV.jGbNurddUTKUOubu6HX4kDV8OE8fNFj6Da5y",
-    "foto": "",
+    "senha": "$2b$10$vKHubFA2SJxjJi50Ac5hZOqy83Hyiw2jsB6cdNorPrwgOaMvHyeSG",
+    "foto": "public/user_1_1719632834468.jpeg",
     "avaliacoes": [
-      3
+      1
     ]
   },
   {
     "id": 2,
-    "nome": "Nome Teste",
+    "nome": "Nome Show de Bola",
     "email": "email2@gmail.com",
-    "senha": "$2b$10$RxvAJp3UuxJtoWBTGByOWe0NitDRiSZZJEntiSprMIoRRdJqMIJk2",
-    "foto": "",
+    "senha": "$2b$10$04tFz1p3P2sWi0.92xZ3Y.A.1RqMC8sqppKytOwGmEsnDVTmKh8C2",
+    "foto": "public/user_2_1719632622755.png",
     "avaliacoes": [
-      2
+      3,
+      4
     ]
-  },
-  {
-    "id": 3,
-    "nome": "Nome Show de Bola",
-    "email": "email3@gmail.com",
-    "senha": "$2b$10$NrCKqY41V2gk7RmPrmVLS.s7i9Fpp/oSP2pMu4X.z2a36ygEwqbJK",
-    "foto": "",
-    "avaliacoes": []
-  },
-  {
-    "id": 4,
-    "nome": "Nome Show de Bola",
-    "email": "email4@gmail.com",
-    "senha": "$2b$10$pnfQWabDdyAsA4yYMMdDDuafgjsogZn/zKRguby4SgZkqrAQfip3i",
-    "foto": "",
-    "avaliacoes": []
   }
 ]

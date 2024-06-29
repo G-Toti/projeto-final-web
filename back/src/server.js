@@ -5,7 +5,7 @@ import { config } from "dotenv";
 import helloRouter from "./routes/hello.routes.js";
 import userRouter from "./routes/user.routes.js";
 import ratingRouter from "./routes/avaliacoes.routes.js";
-import authBaseUser from "./middlewares/auth.middlewares.js";
+import { authBaseUser } from "./middlewares/auth.middlewares.js";
 
 config();
 
@@ -14,6 +14,9 @@ const app = express();
 
 app.use(cors());
 app.use(json());
+
+app.use("/public", express.static("public")); // rota da pasta public para pegar as imagens
+// as imagens podem ser acessadas com localhost:3001/public/nomedoarquivo.extensao
 
 app.use("/hello", helloRouter);
 app.use("/user", userRouter); // Utiliza as rotas do user router
