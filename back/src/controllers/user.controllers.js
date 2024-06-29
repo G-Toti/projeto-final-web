@@ -162,7 +162,7 @@ export const updateUser = async (req, res) => {
 
   // O usuário não está no banco de dados
   if (!targetUser) {
-    res.status(404).json({
+    return res.status(404).json({
       mensagem: ["Usuário não identificado."],
     });
   }
@@ -212,7 +212,7 @@ export const getUser = (req, res) => {
 
   // O usuário não está no banco de dados
   if (!targetUser) {
-    res.status(404).json({
+    return res.status(404).json({
       mensagem: ["Usuário não identificado."],
     });
   }
@@ -239,7 +239,7 @@ export const getUsers = (req, res) => {
 
   // O usuário não está no banco de dados
   if (targetUsers.length === 0) {
-    res.status(404).json({
+    return res.status(404).json({
       mensagem: ["Nenhum resultado encontrado."],
     });
   }
