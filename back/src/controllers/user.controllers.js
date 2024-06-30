@@ -30,7 +30,7 @@ export const createUser = async (req, res) => {
   }
 
   // gera o id
-  const id = dataBase.length;
+  const id = dataBase[dataBase.length - 1].id + 1;
 
   // encripta a senha
   const salt = await bcrypt.genSalt(10);
@@ -52,8 +52,8 @@ export const createUser = async (req, res) => {
 
   // gera o token
   const token = getToken({
+    id,
     email,
-    encryptedPassword,
   });
 
   // devolve o token
@@ -104,13 +104,155 @@ export const login = async (req, res) => {
   }
 
   const token = getToken({
+    id: user.id,
     email,
-    senha,
   });
 
   // devolve o token
   return res.status(200).json({
     mensagem: ["Usuário autenticado com sucesso"],
     token: token,
+  });
+};
+
+export const updateUser = async (req, res) => {
+  const { nome, email, senha } = req.body;
+  const { id } = req.params;
+
+  const errors400 = []; // lista de erros 400 (BadRequest)
+
+  if (nome && typeof nome !== "string")
+    errors400.push("Nome deve ser uma string.");
+  if (email && typeof email !== "string")
+    errors400.push("Email deve ser uma string.");
+  if (senha && typeof senha !== "string")
+    errors400.push("Senha deve ser uma string.");
+
+  // verifica se houveram erros na forma de enviar a requisição
+  if (errors400.length > 0) {
+    return res.status(400).json({
+      mensagem: errors400,
+    });
+  }
+
+  const usersDB = getDataBase("usuarios.json");
+
+  // busca por um usuario com o mesmo email
+  for (let user of usersDB) {
+    if (user.email === email) {
+      return res.status(409).json({
+        mensagem: ["Email já existe na base de dados. Tente outro email."],
+      });
+    }
+  }
+
+  // usuario que está fazendo a atualização e sua posição na base de dados
+  let targetUser;
+  let targetPosition = usersDB.length;
+
+  // busca pelo usuário que vai fazer a atualização no banco de dados
+  for (let i = 0; i < usersDB.length; i++) {
+    let element = usersDB[i];
+    if (element.id === Number(id)) {
+      targetUser = element;
+      targetPosition = i;
+      break;
+    }
+  }
+
+  // O usuário não está no banco de dados
+  if (!targetUser) {
+    return res.status(404).json({
+      mensagem: ["Usuário não identificado."],
+    });
+  }
+
+  // O usuário está tentando acessar uma informação que pertence a outro usuário
+  if (targetUser.id !== req.user.id) {
+    return res.status(403).json({
+      mensagem: [
+        "O usuário está tentando acessar uma informação que não o pertence",
+      ],
+    });
+  }
+
+  const updatedUser = {
+    ...targetUser,
+    ...(nome && { nome: nome }),
+    ...(email && { email: email }),
+    ...(senha && { senha: await bcrypt.hash(senha, await bcrypt.genSalt(10)) }),
+    ...(req.file.path && { foto: req.file.path }),
+  };
+
+  usersDB[targetPosition] = updatedUser;
+
+  setDataBase("usuarios.json", usersDB);
+
+  res.status(200).json({
+    mensagem: ["Usuario atualizado com sucesso"],
+  });
+};
+
+// como nenhuma informação sensível será passada, essa rota sera aberta para qualquer usuario autenticado
+export const getUser = (req, res) => {
+  const { id } = req.params;
+
+  const usersDB = getDataBase("usuarios.json");
+
+  let targetUser;
+
+  // busca pelo usuário
+  for (let i = 0; i < usersDB.length; i++) {
+    let element = usersDB[i];
+    if (element.id === Number(id)) {
+      targetUser = element;
+      break;
+    }
+  }
+
+  // O usuário não está no banco de dados
+  if (!targetUser) {
+    return res.status(404).json({
+      mensagem: ["Usuário não identificado."],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Usuario encontrado com sucesso!"],
+    data: {
+      nome: targetUser.nome,
+      email: targetUser.email,
+      foto: targetUser.foto,
+      avaliacoes: targetUser.avaliacoes,
+    },
+  });
+};
+
+// como nenhuma informação sensível será passada, essa rota sera aberta para qualquer usuario autenticado
+export const getUsers = (req, res) => {
+  const { nome } = req.query;
+
+  const usersDB = getDataBase("usuarios.json");
+
+  // usuarios
+  const targetUsers = usersDB.filter((element) => element.nome.includes(nome));
+
+  // O usuário não está no banco de dados
+  if (targetUsers.length === 0) {
+    return res.status(404).json({
+      mensagem: ["Nenhum resultado encontrado."],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Usuarios encontrados com sucesso!"],
+    data: targetUsers.map((user) => {
+      return {
+        nome: user.nome,
+        email: user.email,
+        foto: user.foto,
+        avaliacoes: user.avaliacoes,
+      };
+    }),
   });
 };

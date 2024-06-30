@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-export default function authBaseUser(req, res, next) {
+export function authBaseUser(req, res, next) {
   const auth = req.headers["authorization"];
 
   if (!auth) {
@@ -19,7 +19,7 @@ export default function authBaseUser(req, res, next) {
   }
 
   try {
-    jwt.verify(token, process.env.AUTH_SECRET);
+    req.user = jwt.verify(token, process.env.AUTH_SECRET);
     next();
   } catch (error) {
     return res.status(403).json({
