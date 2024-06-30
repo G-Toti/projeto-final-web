@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { Login } from "../components/login";
+import { Cadastro } from "../components/cadastro";
 import { Footer } from "../components/footer";
 
 const Page = () => {
   return (
     <main className="bg-gray-100 font-montserrat">
       <div>
-        <Login />
+        <Cadastro />
       </div>
       <Footer />
     </main>
