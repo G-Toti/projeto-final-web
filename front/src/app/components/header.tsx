@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export const Header = () => {
   return (
@@ -14,9 +15,9 @@ export const Header = () => {
           </div>
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
-              <a className="hover:text-gray-400" href="#login">
-                Fazer login
-              </a>
+              <Link legacyBehavior href="/login">
+                <a className="hover:text-gray-400">Fazer login</a>
+              </Link>
             </nav>
           </div>
         </div>
