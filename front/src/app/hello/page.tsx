@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import api from "../../../utils/axiosConfig";
+import { api } from "../../../utils/axiosConfig";
 
 const Page = () => {
   const [X, setX] = useState<string>("");
   useEffect(() => {
     const teste = async () => {
-      const res = await api.get("people/1");
+      const res = await api.get("people/2");
       setX(res.data.name);
     };
 
