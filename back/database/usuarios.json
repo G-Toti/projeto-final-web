@@ -20,6 +20,25 @@
   {
     "id": 2,
     "nome": "Nome Show de Bola",
+    "email": "email3@gmail.com",
+    "senha": "$2b$10$NrCKqY41V2gk7RmPrmVLS.s7i9Fpp/oSP2pMu4X.z2a36ygEwqbJK",
+    "foto": "",
+    "avaliacoes": []
+  },
+  
+  {
+    "id": 3,
+    "nome": "zino",
+    "email": "zinolath@gmail.com",
+    "senha": "$2b$10$LpqNmHaM3y90mQWbAd3TDuY79h/zpJv3Qzu2rOus1/IBoxTJvvJiC",
+    "foto": "",
+    "avaliacoes": [
+      2
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Nicki Minaj",
     "email": "email2@gmail.com",
     "senha": "$2b$10$04tFz1p3P2sWi0.92xZ3Y.A.1RqMC8sqppKytOwGmEsnDVTmKh8C2",
     "foto": "public/user_2_1719632622755.png",
