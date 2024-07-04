@@ -3,7 +3,8 @@ import path from "path";
 import fs from "fs";
 
 // Função para pegar dados de uma base de dados em arquivo
-
+// Recebe como parâmetro um nome de um arquivo .json, como 'hello.json' por exemplo (sem '/')
+// Retorna um objeto JS com as informações no arquivo
 export const getDataBase = (file) => {
   const curDir = cwd();
   const dataBaseDir = path.join(curDir, "database", file);
@@ -13,8 +14,10 @@ export const getDataBase = (file) => {
   return data;
 };
 
-// função para sobrescrever uma base de dados
-
+// Função para sobrescrever uma base de dados de arquivo
+// Recebe como parâmetro um nome de um arquivo .json, como 'hello.json' por exemplo (sem '/')
+// E um objeto JS que irá ser escrito no arquivo.
+// Sobrescreve toda a informação no arquivo com o objeto passado.
 export const setDataBase = (file, data) => {
   const curDir = cwd();
   const dataBaseDir = path.join(curDir, "database", file);
