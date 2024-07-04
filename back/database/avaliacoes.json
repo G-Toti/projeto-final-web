@@ -4,7 +4,8 @@
     "titulo": "exemplo de titulo",
     "corpo": "exemplo de corpo",
     "nota": 0,
-    "musica_id": "id_da_musica",
+    "musica": "Sympathy is a Knife",
+    "artista": "Charli xcx",
     "usuario_id": 0
   },
   {
@@ -12,7 +13,8 @@
     "titulo": "exemplo de titulo atualizado 2",
     "corpo": "exemplo de corpo atualizado",
     "nota": 3.5,
-    "musica_id": "id_da_musica_1",
+    "musica": "Von Dutch",
+    "artista": "Charli xcx",
     "usuario_id": 1
   },
   {
@@ -20,15 +22,17 @@
     "titulo": "exemplo de titulo",
     "corpo": "exemplo de corpo",
     "nota": 4,
-    "musica_id": "id_da_musica_2",
-    "usuario_id": 2
+    "musica": "360",
+    "artista": "Charli xcx",
+    "usuario_id": 4
   },
   {
     "id": 4,
     "titulo": "exemplo de titulo",
-    "corpo": "exemplo de corpo",
-    "nota": 2.5,
-    "musica_id": "id_da_musica_1",
-    "usuario_id": 2
+    "corpo": "",
+    "nota": 2,
+    "musica": "365",
+    "artista": "Charli xcx",
+    "usuario_id": 4
   }
 ]
