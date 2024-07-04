@@ -1,11 +1,11 @@
 "use client"
 import React from "react";
 import { api, server, callAPIMethod } from "@/../utils/axiosConfig";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { Result } from "./result";
 
-export interface IResult {
+interface IResult {
   nome : string;
   artista : string;
   image : string;
@@ -26,7 +26,7 @@ export const Search = ({query} : {query:string}) => {
         const result = {
           nome: APIresult.name,
           artista: APIresult.artist,
-          image: APIresult.image[0]["#text"]
+          image: APIresult.image[3]["#text"]
         }
         results.push(result);
       }

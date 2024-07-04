@@ -13,9 +13,8 @@ export const SearchBar = ({}) => {
     const router = useRouter()
     const submit = async (data: any) => {
         console.log(data);
-        redirect(`/search?q=${data.query}`);
         router.push(`/search?q=${data.query}`);
-        router.refresh();
+        location.reload();
       };
     return (
         <form className="m-auto w-96 rounded-full bg-orange-950 inline-block text-sm"

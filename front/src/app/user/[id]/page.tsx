@@ -1,7 +1,5 @@
 //"use client";
 import React from "react";
-import { Header } from "@/app/components/header";
-import { Footer } from "@/app/components/footer";
 import { Dados } from "@/app/components/user-page/data";
 import { ReviewList } from "@/app/components/user-page/review-list";
 

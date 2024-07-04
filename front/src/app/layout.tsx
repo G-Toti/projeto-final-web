@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "./components/header";
 import { Footer } from "./components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "HGBC Music",
@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth bg-black">
       <body className={inter.className}>
         <Header />
-        <main className="bg-gray-100 font-montserrat">
+        <main className="bg-black font-montserrat">
         {children}
         </main>
         <Footer />
