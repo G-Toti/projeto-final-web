@@ -1,6 +1,8 @@
 import React from "react";
 import { SearchBar } from "./search/search-bar";
 
+import { SearchBar } from "./search/search-bar";
+
 export const Header = () => {
   return (
     <header className="bg-black text-gray-100 p-4 sm:text-sm lg:text-xl drop-shadow-lg fixed w-full z-10">
