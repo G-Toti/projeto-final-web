@@ -2,17 +2,21 @@
 import React from "react";
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
-import { UserData } from "@/app/components/user-page/data";
-import { ReviewList } from "@/app/components/user-page/review-list";
+import { Search } from "@/app/components/search/search";
 
-const Page = ({params} : {params:any}) => {
+const Page = ({
+    params,
+    searchParams,
+  }: {
+    params: { slug: string }
+    searchParams: { [key: string]: string | string[] | undefined }
+  }) => {
   return (
     <main className="bg-gray-100 font-montserrat">
       <div>
         <Header />
       </div>
-      <UserData  />
-      <ReviewList user={params.id} />
+      <Search query={searchParams.q} />
       <Footer />
     </main>
   );

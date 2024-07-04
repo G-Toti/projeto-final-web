@@ -65,7 +65,7 @@ export const ReviewList = ({user} : {user:any}) => {
     }
   }, []);
 
-  if(reviews[0].error != 0)
+  if(reviews[0].error != 0 && !(reviews[0].error === undefined))
   {
     return (
       <section className="m-auto bg-neutral-950 w-5/6 text-white text-center pb-20 pt-20">
@@ -81,7 +81,6 @@ export const ReviewList = ({user} : {user:any}) => {
       </section>
     );
   }
-  else{
     return (
       <section className="m-auto bg-neutral-950 w-5/6 grid grid-cols-2">
       {reviews.map((elem, i) => <Review
@@ -95,5 +94,4 @@ export const ReviewList = ({user} : {user:any}) => {
       />)}
       </section>
     );
-  }
 };

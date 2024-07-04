@@ -1,4 +1,6 @@
 import React from "react";
+import { SearchBar } from "./search/search-bar";
+
 export const Header = () => {
   return (
     <header className="bg-black text-gray-100 p-4 sm:text-sm lg:text-xl drop-shadow-lg fixed w-full z-10">
@@ -11,6 +13,7 @@ export const Header = () => {
               alt="Logotipo HGBC"
             />
           </div>
+          <SearchBar />
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
               <a className="hover:text-gray-400" href="/login">
