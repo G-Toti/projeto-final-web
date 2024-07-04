@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { server } from "../../../utils/axiosConfig";
+import { server } from "@/../utils/axiosConfig";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";

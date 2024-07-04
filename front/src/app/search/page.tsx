@@ -9,14 +9,15 @@ const Page = ({
     searchParams,
   }: {
     params: { slug: string }
-    searchParams: { [key: string]: string | string[] | undefined }
+    searchParams: { [key: string]: string}
   }) => {
+  const query = searchParams.q || " ";
   return (
     <main className="bg-gray-100 font-montserrat">
       <div>
         <Header />
       </div>
-      <Search query={searchParams.q} />
+      <Search query={query} />
       <Footer />
     </main>
   );
