@@ -27,16 +27,16 @@ Por fim, o site terá uma página de apresentação que explicará seu funcionam
 
 ### TODO
 
-- [ ] Página de intodução
+- [x] Página de intodução
 - [x] Sistema de Leitura / Escrita em arquivo
-- [ ] Cadastro / Login
-  - [ ] Formulário de cadastro
-    - [ ] Verificação de padrão de credenciais
-  - [ ] CRUD de usuários no banco de dados
-  - [ ] Autenticação de usuário
-  - [ ] Página de perfil
-- [ ] Página inicial
-  - [ ] Consulta dos albuns
+- [x] Cadastro / Login
+  - [x] Formulário de cadastro
+    - [x] Verificação de padrão de credenciais
+  - [x] CRUD de usuários no banco de dados
+  - [x] Autenticação de usuário
+  - [x] Página de perfil
+- [x] Página inicial
+  - [x] Consulta dos albuns
 - [ ] Página do album
   - [ ] Consulta do album
   - [ ] Sistema de avaliação (CRUD)
