@@ -122,6 +122,28 @@ export const readAvaliacoesMusic = (req, res) => {
   });
 };
 
+export const readAvaliacoesId = (req, res) => {
+  const { id } = req.params;
+
+  const dataBase = getDataBase("avaliacoes.json");
+
+  // pega so os elementos que tem o id compativel nele
+  const reviews = dataBase.filter((element) => element.id == id);
+  console.log(reviews)
+
+  if (reviews.length === 0) {
+    return res.status(404).json({
+      mensagem: ["Nenhuma avaliação encontrada para o id especificado"],
+      data: [],
+    });
+  }
+
+  res.status(200).json({
+    mensagem: ["Avaliação encontrada com sucesso."],
+    data: reviews,
+  });
+};
+
 export const readAvaliacoesUser = (req, res) => {
   const { usuario_id } = req.params;
 

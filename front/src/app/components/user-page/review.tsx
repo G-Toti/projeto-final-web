@@ -1,7 +1,8 @@
 import React from "react";
 import Image from 'next/image';
+import Link from "next/link";
 
-export const Review = ({name="nome", artist="artista", album="album", release="2024", image="", stars=5, review=""}) => {
+export const Review = ({id=0, name="nome", artist="artista", album="album", release="2024", image="", stars=5, review=""}) => {
     const showReview = review.length != 0;
 
     var titleClass = "font-bold grid grid-flow-row-dense grid-cols-3 text-orange-400 bg-orange-950 p-2 rounded-md";
@@ -11,6 +12,7 @@ export const Review = ({name="nome", artist="artista", album="album", release="2
     }
 
     return (
+        <Link href={"/edit/" + id}>
         <section className="m-5 text-gray-100 rounded-md h-fit p-2">
             <div className={titleClass}>
                 <div className="grow flex flex-row col-span-2">
@@ -52,5 +54,6 @@ export const Review = ({name="nome", artist="artista", album="album", release="2
             </div>
             }
         </section>
+        </Link>
     );
 };

@@ -34,6 +34,10 @@ export const ReviewList = ({ user }: { user: any }) => {
           },
         });
       } catch (err) {
+        console.log(err)
+        if(err.message == "Request failed with status code 404") {
+          setIsLoading(false);
+        }
         return;
       }
       const tracks = [];
@@ -88,6 +92,7 @@ export const ReviewList = ({ user }: { user: any }) => {
         <div className="grid grid-cols-2">
           {reviews?.map((element, index) => (
             <Review
+              id={element.id}
               name={element.titulo}
               album={element.album}
               artist={element.artista}
