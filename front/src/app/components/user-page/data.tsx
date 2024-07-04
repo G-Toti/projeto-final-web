@@ -22,7 +22,7 @@ export const Dados = ({ user }: any) => {
   const { errors } = formState;
 
   useEffect(() => {
-    if (msg.includes("não o pertence")) {
+    if (msg.includes("não o pertence") || msg.includes("inválido")) {
       alert(msg);
       sessionStorage.removeItem("token");
       router.push("/login");
