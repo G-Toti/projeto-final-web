@@ -5,16 +5,12 @@ import { Footer } from "@/app/components/footer";
 import { Dados } from "@/app/components/user-page/data";
 import { ReviewList } from "@/app/components/user-page/review-list";
 
-const Page = ({params} : {params:any}) => {
+const Page = ({ params }: any) => {
   return (
-    <main className="bg-gray-100 font-montserrat">
-      <div>
-        <Header />
-      </div>
-      <Dados  />
+    <>
+      <Dados user={params.id} />
       <ReviewList user={params.id} />
-      <Footer />
-    </main>
+    </>
   );
 };
 

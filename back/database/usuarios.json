@@ -25,7 +25,6 @@
     "foto": "",
     "avaliacoes": []
   },
-  
   {
     "id": 3,
     "nome": "zino",
@@ -41,10 +40,66 @@
     "nome": "Nicki Minaj",
     "email": "email2@gmail.com",
     "senha": "$2b$10$04tFz1p3P2sWi0.92xZ3Y.A.1RqMC8sqppKytOwGmEsnDVTmKh8C2",
-    "foto": "public/user_2_1719632622755.png",
+    "foto": "public/user_4_1720112231473.png",
     "avaliacoes": [
       3,
       4
     ]
+  },
+  {
+    "id": 5,
+    "nome": "Beatriz",
+    "email": "beatrizgnascimento1@gmail.com",
+    "senha": "$2b$10$7SdF3QOWpFLPPWFW9FulM.a4pXT/nzw3u7e1CAc7Xp/Sm3iwtP6Li",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 6,
+    "nome": "Beatriz",
+    "email": "email1@gmail.com",
+    "senha": "$2b$10$ItmmEZnjbKakkwJAlJ9xneUSDxmHVi6vWvK2aBkyWqx3d5ZkaucXe",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 7,
+    "nome": "n",
+    "email": "n@gmail.com",
+    "senha": "$2b$10$Rg3GWg3AkDEwfDODAEz1Q.9M2UvgyApsOZkQLG2FvJFcZDk6J.m2S",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 8,
+    "nome": "n",
+    "email": "n1@gmail.com",
+    "senha": "$2b$10$pALBm0pUir5rp.q9AQuRyudVhVSX20qVdVOHbypN3qC5KC2YhiRaO",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 9,
+    "nome": "usuario",
+    "email": "usuario@gmail.com",
+    "senha": "$2b$10$RFA9tmAOILhy00blWK5jfuPC9Jfbaf5LnGzM0ICkMzKPlKvlCp.9i",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 10,
+    "nome": "nome",
+    "email": "nome1@gmail.com",
+    "senha": "$2b$10$ECay96sNZA.fsjNsSipSQOR2DhVq4TB2tEszYw1/2L5xOXXb3PIGq",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 11,
+    "nome": "Gabriel Carneiro Roque Toti Silva",
+    "email": "gabrieltoti414@gmail.com",
+    "senha": "$2b$10$slgRUaXKh8sxSafu9vGUOekyIyGOaul/7zKARwKYgQ33Y3qd/t8mi",
+    "foto": "",
+    "avaliacoes": []
   }
 ]

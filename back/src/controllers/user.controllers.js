@@ -50,15 +50,18 @@ export const createUser = async (req, res) => {
 
   setDataBase("usuarios.json", dataBase); // sobrescreve o banco de dados
 
-  // gera o token
-  const token = getToken({
+  const data = {
     id,
     email,
-  });
+  }
+
+  // gera o token
+  const token = getToken(data);
 
   // devolve o token
   res.status(201).json({
     mensagem: ["Usuário criado com sucesso"],
+    user: data,
     token: token,
   });
 };
@@ -97,20 +100,23 @@ export const login = async (req, res) => {
     });
   }
 
-  if (!(await bcrypt.compare(senha, user.senha))) {
+  if (!await bcrypt.compare(senha, user.senha)) {
     return res.status(422).json({
       mensagem: ["Email ou senha incorretos"],
     });
   }
 
-  const token = getToken({
+  const data = {
     id: user.id,
     email,
-  });
+  }
+
+  const token = getToken(data);
 
   // devolve o token
   return res.status(200).json({
     mensagem: ["Usuário autenticado com sucesso"],
+    user: data,
     token: token,
   });
 };
@@ -127,6 +133,7 @@ export const updateUser = async (req, res) => {
     errors400.push("Email deve ser uma string.");
   if (senha && typeof senha !== "string")
     errors400.push("Senha deve ser uma string.");
+    
 
   // verifica se houveram erros na forma de enviar a requisição
   if (errors400.length > 0) {
@@ -176,12 +183,13 @@ export const updateUser = async (req, res) => {
     });
   }
 
+
   const updatedUser = {
     ...targetUser,
     ...(nome && { nome: nome }),
     ...(email && { email: email }),
     ...(senha && { senha: await bcrypt.hash(senha, await bcrypt.genSalt(10)) }),
-    ...(req.file.path && { foto: req.file.path }),
+    ...(req.file && req.file.path && { foto: req.file.path }),
   };
 
   usersDB[targetPosition] = updatedUser;

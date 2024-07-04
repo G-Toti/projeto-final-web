@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { server } from "../../../utils/axiosConfig";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,6 +19,8 @@ export const Login = () => {
   //Msg para armazenar resposta literal do servidor
   const [msg, setMsg] = useState(" ");
 
+  const [userId, setUserId] = useState<string | null>();
+
   const form = useForm({
     resolver: yupResolver(schema),
   });
@@ -29,13 +31,20 @@ export const Login = () => {
   const submit = async (data: any) => {
     try {
       const response = await server.post(
-        "http://localhost:3001/user/login",
+        "/user/login",
         data
       );
 
+      console.log(response)
+
       const token = response.data.token;
+      const id = response.data.user.id;
+
+      setUserId(id)
 
       sessionStorage.setItem("token", token);
+      sessionStorage.setItem("user_id", id);
+
 
       setMsg("Usuário Autenticado");
     } catch (error) {
@@ -43,9 +52,11 @@ export const Login = () => {
     }
   };
 
-  if (msg.includes("Usuário Autenticado")) {
-    redirect("home-lista-musicas");
-  }
+  useEffect(() => {
+    if (msg.includes("Usuário Autenticado")) {
+      redirect(`user/${userId}`);
+    }
+  }, [msg])
 
   return (
     <section className="bg-black text-gray-100 p-20 text-md">
