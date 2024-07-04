@@ -3,6 +3,7 @@ import React from "react";
 import { SearchBar } from "./search/search-bar";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export const Header = () => {
   const [token, setToken] = useState<string | null>("");
@@ -16,9 +17,11 @@ export const Header = () => {
       <div className="lg:ml-44 lg:mr-44 ">
         <div className="flex justify-between">
           <div>
-            <img className="max-h-12" src="/img/HGBC.png" alt="Logotipo HGBC" />
+            <Link href="/">
+              <Image className="max-h-12" src="/img/HGBC.png" alt="Logotipo HGBC" width={60} height={60}/>
+            </Link>
           </div>
-          <SearchBar />
+          {token && <SearchBar />}
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
               {!token ? (
