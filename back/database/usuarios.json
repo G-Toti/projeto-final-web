@@ -40,7 +40,7 @@
     "nome": "Nicki Minaj",
     "email": "email2@gmail.com",
     "senha": "$2b$10$04tFz1p3P2sWi0.92xZ3Y.A.1RqMC8sqppKytOwGmEsnDVTmKh8C2",
-    "foto": "public/user_2_1719632622755.png",
+    "foto": "public/user_4_1720112231473.png",
     "avaliacoes": [
       3,
       4
@@ -91,6 +91,14 @@
     "nome": "nome",
     "email": "nome1@gmail.com",
     "senha": "$2b$10$ECay96sNZA.fsjNsSipSQOR2DhVq4TB2tEszYw1/2L5xOXXb3PIGq",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 11,
+    "nome": "Gabriel Carneiro Roque Toti Silva",
+    "email": "gabrieltoti414@gmail.com",
+    "senha": "$2b$10$slgRUaXKh8sxSafu9vGUOekyIyGOaul/7zKARwKYgQ33Y3qd/t8mi",
     "foto": "",
     "avaliacoes": []
   }

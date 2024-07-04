@@ -21,7 +21,7 @@ export const Home = () => {
           </div>
           <div className="flex justify-start">
             <a
-              href="#login"
+              href="/login"
               className="flex justify-center bg-orange-500 px-4 py-1 rounded text-gray-100 hover:bg-orange-700 font-bold text-md transition hover:scale-110"
             >
               Explorar

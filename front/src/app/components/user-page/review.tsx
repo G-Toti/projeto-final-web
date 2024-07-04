@@ -2,16 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 export const Review = ({name="nome", artist="artista", album="album", release="2024", image="", stars=5, review=""}) => {
-    //const name="The girl, so confusing version with lorde";
-    //const artist="Charli xcx, Lorde";
-    //const album="brat";
-    //const release="2024";
-    //const image = "/img/brat-test.png";
-    //const stars = 5;
-    //const review = "";
-    //const review = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla metus lacus, laoreet quis porttitor id, dignissim id dui. Integer congue condimentum bibendum. Donec eleifend sapien vitae nibh ullamcorper mollis. Morbi volutpat condimentum semper. Cras posuere felis nulla, ullamcorper egestas enim tempor eu. Ut lobortis ex aliquet sapien imperdiet, id venenatis mauris vulputate. Mauris in ante tristique, facilisis odio non, maximus sem. Duis ac felis elit. Donec porta eros in nisi pharetra sodales. In iaculis nulla tortor, et accumsan sem pulvinar semper. Donec eu leo eget nulla efficitur sagittis eu a risus. Aenean dignissim euismod tristique. ";
     const showReview = review.length != 0;
-    console.log(image);
 
     var titleClass = "font-bold grid grid-flow-row-dense grid-cols-3 text-orange-400 bg-orange-950 p-2 rounded-md";
     if(showReview)
@@ -45,7 +36,8 @@ export const Review = ({name="nome", artist="artista", album="album", release="2
                     </div>
                 </div>
                 <div className="text-right">
-                    {[...Array(Math.round(stars))].map((_, i) => <Image
+                    {[...Array(Math.round(stars))].map((_, index) => <Image
+                        key={index}
                         className="inline-block m-1"
                         src="/img/star.png"
                         width={20}

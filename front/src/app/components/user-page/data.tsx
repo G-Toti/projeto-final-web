@@ -3,14 +3,17 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { server } from "../../../../utils/axiosConfig";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const Dados = ({ user }: any) => {
   const [msg, setMsg] = useState("");
   const [imagem, setImagem] = useState<string | null>(null);
   const [userData, setUserData] = useState({ nome: "", email: "", senha: "" });
   const [editMode, setEditMode] = useState(false); // Estado para controlar edição
-  //const router = useRouter();
+  const [imageFile, setImageFile] = useState<FormData>();
+  const router = useRouter();
+
+  const [userId, setUserId] = useState<string | null>();
 
   const form = useForm({
     defaultValues: userData,
@@ -19,13 +22,37 @@ export const Dados = ({ user }: any) => {
   const { errors } = formState;
 
   useEffect(() => {
+    if (msg.includes("não o pertence") || msg.includes("inválido")) {
+      alert(msg);
+      sessionStorage.removeItem("token");
+      router.push("/login");
+    }
+  }, [msg]);
+
+  useEffect(() => {
+    setUserId(sessionStorage.getItem("user_id"));
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await server.get("/user/" + user);
-        setUserData(response.data);
+        const token = sessionStorage.getItem("token");
+        const response = await server.get("/user/" + user, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUserData(response.data.data);
+        setImagem(
+          `${response.data.data.foto && "http://localhost:3001/"}${
+            response.data.data.foto
+          }`
+        );
         setValue("nome", response.data.nome);
         setValue("email", response.data.email);
         setValue("senha", response.data.senha);
+
+        console.log(response);
       } catch (error) {
         console.error("Erro ao buscar dados do usuário:", error);
       }
@@ -39,6 +66,8 @@ export const Dados = ({ user }: any) => {
       const imageUrl = URL.createObjectURL(file);
       setImagem(imageUrl);
     }
+
+    handleFileSubmit(e);
   };
 
   const handleBackToEdit = () => {
@@ -47,14 +76,24 @@ export const Dados = ({ user }: any) => {
 
   const submit = async (data: any) => {
     try {
-      const response = await server.put("/user/update", data);
+      const token = sessionStorage.getItem("token");
+      const response = await server.put(
+        `/user/${user}`,
+        { ...data, ...imageFile },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.status === 200) {
         setMsg("Dados atualizados com sucesso!");
         setEditMode(false);
       }
+      console.log(response);
     } catch (error) {
       setMsg(
-        "Erro ao atualizar dados: " + error.response.data.mensagem.join(",")
+        "Erro ao atualizar dados: " + error.response.data?.mensagem?.join(",")
       );
     }
   };
@@ -64,15 +103,7 @@ export const Dados = ({ user }: any) => {
     if (file) {
       const formData = new FormData();
       formData.append("foto", file);
-
-      try {
-        const response = await server.put("/user/" + userData.email, formData);
-        if (response.status === 200) {
-          setMsg("Foto atualizada com sucesso!");
-        }
-      } catch (error) {
-        console.error("Erro ao enviar foto:", error);
-      }
+      setImageFile(formData);
     }
   };
 
@@ -119,13 +150,15 @@ export const Dados = ({ user }: any) => {
         {!editMode && (
           <div>
             <p>{userData.nome} </p>
-            <p>{userData.email}</p>
-            <button
-              className="flex justify-center bg-orange-500 px-4 py-1 rounded text-gray-100 hover:bg-orange-700 font-bold text-md transition hover:scale-110"
-              onClick={() => setEditMode(true)} // Entrar no modo de edição ao clicar
-            >
-              Atualizar Dados
-            </button>
+            <p>{userData.email} </p>
+            {userId === user && (
+              <button
+                className="flex justify-center bg-orange-500 px-4 py-1 rounded text-gray-100 hover:bg-orange-700 font-bold text-md transition hover:scale-110"
+                onClick={() => setEditMode(true)} // Entrar no modo de edição ao clicar
+              >
+                Atualizar Dados
+              </button>
+            )}
           </div>
         )}
         {editMode && (
