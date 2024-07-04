@@ -118,29 +118,30 @@ export const Dados = ({ user }: any) => {
   // };
 
   return (
-    <section className="bg-black text-gray-100 p-20 text-md">
-      <div className="flex flex-row p-10 w-50">
-        <div className="mb-4">
+    <section className="bg-red-700 text-gray-100 p-20 text-md">
+      <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center mt-10">
           {imagem ? (
             <Image
-              width={200}
-              height={40}
+              width={100}
+              height={100}
               src={imagem}
               alt="Imagem do usuário"
-              className=" rounded-full object-cover "
+              className=" w-60 h-60 rounded-full object-cover "
             />
           ) : (
             <Image
-              width={200}
-              height={40}
+              width={100}
+              height={100}
               src="/img/default-avatar.png"
               alt="Avatar padrão"
-              className=" rounded-full object-cover"
+              className=" w-60 h-60 rounded-full object-cover"
             />
           )}
           {editMode && (
             <input
               type="file"
+              name="imagem"
               accept="image/*"
               onChange={handleImageUpload}
               className="p-4 "
@@ -149,8 +150,10 @@ export const Dados = ({ user }: any) => {
         </div>
         {!editMode && (
           <div>
-            <p>{userData.nome} </p>
-            <p>{userData.email} </p>
+            <p className="text-center font-bold text-2xl justify-center items-center mt-6">
+              {userData.nome}{" "}
+            </p>
+            <p className="mb-4">{userData.email} </p>
             {userId === user && (
               <button
                 className="flex justify-center bg-orange-500 px-4 py-1 rounded text-gray-100 hover:bg-orange-700 font-bold text-md transition hover:scale-110"
