@@ -19,14 +19,15 @@ export const Header = () => {
           </div>
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
-              {!token && (
+              {!token ? (
                 <Link legacyBehavior href="/login">
                   <a className="hover:text-gray-400">Fazer login</a>
                 </Link>
+              ) : (
+                <Link legacyBehavior href="/login">
+                  <a className="hover:text-gray-400">Sair</a>
+                </Link>
               )}
-              <Link legacyBehavior href="/login">
-                <a className="hover:text-gray-400">Sair</a>
-              </Link>
             </nav>
           </div>
         </div>

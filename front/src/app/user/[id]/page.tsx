@@ -7,14 +7,10 @@ import { ReviewList } from "../../components/user-page/review-list";
 
 const Page = ({ params }: any) => {
   return (
-    <main className="bg-gray-100 font-montserrat">
-      <div>
-        <Header />
-      </div>
+    <>
       <Dados user={params.id} />
       <ReviewList user={params.id} />
-      <Footer />
-    </main>
+    </>
   );
 };
 
