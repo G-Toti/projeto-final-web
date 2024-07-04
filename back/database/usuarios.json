@@ -37,10 +37,10 @@
   },
   {
     "id": 4,
-    "nome": "Nicki Minaj",
+    "nome": "Nick Minaj 2",
     "email": "email2@gmail.com",
     "senha": "$2b$10$04tFz1p3P2sWi0.92xZ3Y.A.1RqMC8sqppKytOwGmEsnDVTmKh8C2",
-    "foto": "public/user_4_1720112231473.png",
+    "foto": "public/user_4_1720133953803.jpeg",
     "avaliacoes": [
       3,
       4
@@ -88,9 +88,9 @@
   },
   {
     "id": 10,
-    "nome": "nome",
-    "email": "nome1@gmail.com",
-    "senha": "$2b$10$ECay96sNZA.fsjNsSipSQOR2DhVq4TB2tEszYw1/2L5xOXXb3PIGq",
+    "nome": "nome2",
+    "email": "nome2@gmail.com",
+    "senha": "$2b$10$rovA6T0SFUUZ29CYw5CPBehERBZGJWZwtj9f/k1caK/.eHJjaI5gW",
     "foto": "",
     "avaliacoes": []
   },
