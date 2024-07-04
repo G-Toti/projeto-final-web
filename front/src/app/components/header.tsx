@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { SearchBar } from "./search/search-bar";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -17,6 +18,7 @@ export const Header = () => {
           <div>
             <img className="max-h-12" src="/img/HGBC.png" alt="Logotipo HGBC" />
           </div>
+          <SearchBar />
           <div className="max-h-12 flex flex-wrap items-center">
             <nav>
               {!token ? (

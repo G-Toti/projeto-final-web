@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Musica = () => {
+export const Musica = ({track, artist} : {track: any, artist: any}) => {
   return (
     <section className="bg-orange-700 text-gray-100 pt-20 text-md">
       <div className="flex flex-col p-20 gap-2">
