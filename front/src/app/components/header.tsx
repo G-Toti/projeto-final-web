@@ -10,6 +10,7 @@ import Image from "next/image";
 export const Header = () => {
   const [token, setToken] = useState<string | null | undefined>("");
   const pathName = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     
@@ -39,9 +40,12 @@ export const Header = () => {
                   <a className="hover:text-gray-400">Fazer login</a>
                 </Link>
               ) : (
-                <Link legacyBehavior href="/login">
+                <button onClick={() => {
+                  sessionStorage.removeItem("token")
+                  router.push('/login');
+                }}>
                   <a className="hover:text-gray-400">Sair</a>
-                </Link>
+                </button>
               )}
             </nav>
           </div>
