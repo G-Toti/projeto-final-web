@@ -30,7 +30,7 @@ export const Dados = ({ user }: any) => {
   }, [msg]);
 
   useEffect(() => {
-    setUserId(sessionStorage.getItem("user_id"));
+    setUserId(sessionStorage.getItem("user_id")); 
   }, []);
 
   useEffect(() => {
@@ -75,11 +75,15 @@ export const Dados = ({ user }: any) => {
   };
 
   const submit = async (data: any) => {
+
+    console.log(data.nome)
+    const reqData = { ...data, ...(imageFile && {foto: imageFile.get("foto")}) }
+    
     try {
       const token = sessionStorage.getItem("token");
-      const response = await server.put(
+      const response = await server.putForm(
         `/user/${user}`,
-        { ...data, ...imageFile },
+        reqData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -103,6 +107,8 @@ export const Dados = ({ user }: any) => {
     if (file) {
       const formData = new FormData();
       formData.append("foto", file);
+      
+
       setImageFile(formData);
     }
   };
