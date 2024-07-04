@@ -9,7 +9,6 @@ export function authBaseUser(req, res, next) {
       ],
     });
   }
-
   const token = auth.split(" ")[1];
 
   if (!token) {
