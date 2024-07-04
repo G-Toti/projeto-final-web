@@ -9,16 +9,16 @@ import Link from "next/link";
 
 const schema = yup
   .object({
-    username: yup.string().required("Usuário obrigatório"),
+    nome: yup.string().required("Usuário obrigatório"),
     email: yup.string().email("Email inválido").required("Email obrigatório"),
-    password: yup
+    senha: yup
       .string()
       .min(2, "Senha com no mínimo 2 caracteres")
-      .required(),
-    passwordConf: yup
+      .required("Senha com no mínimo 2 caracteres"),
+    confSenha: yup
       .string()
-      .required("Confirme a senha")
-      .oneOf([yup.ref("password")], "As senhas devem coincidir!"),
+      .required("Repita a senha")
+      .oneOf([yup.ref("senha")], "As senhas devem coincidir!"),
   })
   .required();
 
@@ -33,13 +33,14 @@ export const Cadastro = () => {
   const { errors } = formState;
 
   const submit = async (data: any) => {
+    console.log(data);
     try {
-      const response = await server.post(
-        "http://localhost:3001/user/cadastro",
-        data
-      );
-
-      if (response.status === 200) setMsg("OK");
+      const response = await server.post("/user/create", data);
+      console.log(response);
+      if (response.status === 201) {
+        setMsg("OK");
+        sessionStorage.setItem("token", response.data.token);
+      }
     } catch (error) {
       setMsg(error.response.data.mensagem.join(","));
     }
@@ -65,32 +66,36 @@ export const Cadastro = () => {
               id="nome"
               placeholder="Digite seu nome"
               className="rounded p-2 text-black"
+              {...register("nome")}
             />
-            <p className="erro">{errors.root?.message}</p>
+            <p className="erro">{errors.email?.message}</p>
             <label htmlFor="email">E-mail:</label>
             <input
               type="text"
               id="email"
               placeholder="Digite seu e-mail"
               className="rounded p-2 text-black"
+              {...register("email")}
             />
-            <p className="erro">{errors.email?.message}</p>
+            <p className="erro">{errors.senha?.message}</p>
             <label htmlFor="senha">Senha:</label>
             <input
               type="password"
               id="senha"
               placeholder="Digite sua senha"
               className="rounded p-2 text-black"
+              {...register("senha")}
             />
-            <p className="erro">{errors.password?.message}</p>
+            <p className="erro">{errors.confSenha?.message}</p>
             <label htmlFor="confirmasenha">Confirmar senha:</label>
             <input
               type="password"
               id="senha"
               placeholder="Confirme sua senha"
               className="rounded p-2 text-black"
+              {...register("confSenha")}
             />
-            <p className="erro">{errors.passwordConf?.message}</p>
+            <p className="erro">{errors.confSenha?.message}</p>
             <div className="flex flex-wrap pt-2 justify-end">
               <button className="bg-orange-500 font-bold rounded py-1 w-1/2 hover:bg-orange-700 transition hover:scale-110">
                 Cadastrar
