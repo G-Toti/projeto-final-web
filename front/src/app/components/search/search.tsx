@@ -39,7 +39,7 @@ export const Search = ({query} : {query:string}) => {
     }
   }, []);
   return (
-    <section className="m-auto bg-neutral-950 w-full">
+    <section className="m-auto pt-20 bg-neutral-950 w-full">
       {!(state == "loading") ? (
         <div className="grid grid-cols-3 pl-44 pr-44 m-auto">
           {results?.map((result, index) => (

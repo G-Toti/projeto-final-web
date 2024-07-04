@@ -55,16 +55,23 @@ export const ReviewList = ({ user }: { user: any }) => {
         } else {
           data.album.image = data.album.image[2]["#text"];
         }
+        if(data.wiki == undefined)
+        {
+          data.release = ""
+        }
+        else{
+          data.release = data.wiki.published.split(" ")[2].slice(0, -1)
+        }
         const review = {
           id: element.id,
-          titulo: element.titulo,
+          titulo: element.musica,
           corpo: element.corpo,
           nota: element.nota,
           musica: element.musica,
           artista: element.artista,
           usuario_id: element.usuario_id,
           album: data.album.title,
-          release: data.wiki.published.split(" ")[2].slice(0, -1),
+          release: data.release,
           image: data.album.image,
         };
         tracks.push(review);

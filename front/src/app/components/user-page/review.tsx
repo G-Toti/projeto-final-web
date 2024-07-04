@@ -30,7 +30,7 @@ export const Review = ({name="nome", artist="artista", album="album", release="2
                                 {artist}
                             </div>
                             <div className="text-right inline-block"> 
-                                Album: {album}, {release}
+                                Album: {album}{release.length > 0 ? "," : ""} {release}
                             </div>
                         </div>
                     </div>

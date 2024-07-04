@@ -1,7 +1,7 @@
 import { getDataBase, setDataBase } from "../../utils/DataBaseController.js";
 
 export const createAvaliacao = (req, res) => {
-  const { titulo, corpo, nota, musica_id, usuario_id } = req.body;
+  const { titulo, corpo, nota, musica, artista, usuario_id } = req.body;
 
   // lida com erros no formato da requisição
   const erros400 = [];
@@ -9,8 +9,10 @@ export const createAvaliacao = (req, res) => {
   if (typeof titulo !== "string") erros400.push("Titulo deve ser uma string");
   if (typeof corpo !== "string") erros400.push("Corpo deve ser uma string");
   if (typeof nota !== "number") erros400.push("Nota deve ser um number");
-  if (typeof musica_id !== "string")
-    erros400.push("Musica_id deve ser uma string");
+  if (typeof musica !== "string")
+    erros400.push("Musica deve ser uma string");
+  if (typeof artista !== "string")
+    erros400.push("Artista deve ser uma string");
   if (typeof usuario_id !== "number")
     erros400.push("Usuario_id deve ser um number");
 
@@ -57,7 +59,7 @@ export const createAvaliacao = (req, res) => {
   if (
     avaliacoesDB.find(
       (element) =>
-        element.musica_id === musica_id && element.usuario_id === usuario_id
+        element.musica === musica && element.artista === artista && element.usuario_id === usuario_id
     )
   ) {
     return res.status(409).json({
@@ -77,7 +79,8 @@ export const createAvaliacao = (req, res) => {
     titulo,
     corpo,
     nota,
-    musica_id,
+    musica,
+    artista,
     usuario_id,
   };
 
