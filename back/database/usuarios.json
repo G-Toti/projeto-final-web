@@ -85,5 +85,13 @@
     "senha": "$2b$10$RFA9tmAOILhy00blWK5jfuPC9Jfbaf5LnGzM0ICkMzKPlKvlCp.9i",
     "foto": "",
     "avaliacoes": []
+  },
+  {
+    "id": 10,
+    "nome": "nome",
+    "email": "nome1@gmail.com",
+    "senha": "$2b$10$ECay96sNZA.fsjNsSipSQOR2DhVq4TB2tEszYw1/2L5xOXXb3PIGq",
+    "foto": "",
+    "avaliacoes": []
   }
 ]
