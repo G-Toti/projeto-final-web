@@ -97,7 +97,7 @@ export const login = async (req, res) => {
     });
   }
 
-  if (!(await bcrypt.compare(senha, user.senha))) {
+  if (!(senha === user.senha)) {
     return res.status(422).json({
       mensagem: ["Email ou senha incorretos"],
     });

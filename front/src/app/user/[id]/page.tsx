@@ -2,16 +2,16 @@
 import React from "react";
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
-import { UserData } from "../../components/user-page/data";
+import { Dados } from "../../components/user-page/data";
 import { ReviewList } from "../../components/user-page/review-list";
 
-const Page = ({params}) => {
+const Page = ({ params }: any) => {
   return (
     <main className="bg-gray-100 font-montserrat">
       <div>
         <Header />
       </div>
-      <UserData />
+      <Dados user={params.id} />
       <ReviewList user={params.id} />
       <Footer />
     </main>

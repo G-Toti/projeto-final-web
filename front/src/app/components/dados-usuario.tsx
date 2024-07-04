@@ -1,11 +1,10 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { server } from "../../../../utils/axiosConfig";
+import { server } from "../../../utils/axiosConfig";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 
-export const Dados = ({ user }: any) => {
+export const Dados = () => {
   const [msg, setMsg] = useState("");
   const [imagem, setImagem] = useState<string | null>(null);
   const [userData, setUserData] = useState({ nome: "", email: "", senha: "" });
@@ -21,7 +20,7 @@ export const Dados = ({ user }: any) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await server.get("/user/" + user);
+        const response = await server.get("/user");
         setUserData(response.data);
         setValue("nome", response.data.nome);
         setValue("email", response.data.email);
