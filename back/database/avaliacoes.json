@@ -16,23 +16,5 @@
     "musica": "Von Dutch",
     "artista": "Charli xcx",
     "usuario_id": 1
-  },
-  {
-    "id": 3,
-    "titulo": "exemplo de titulo",
-    "corpo": "exemplo de corpo",
-    "nota": 4,
-    "musica": "360",
-    "artista": "Charli xcx",
-    "usuario_id": 4
-  },
-  {
-    "id": 4,
-    "titulo": "exemplo de titulo",
-    "corpo": "",
-    "nota": 2,
-    "musica": "365",
-    "artista": "Charli xcx",
-    "usuario_id": 4
   }
 ]
