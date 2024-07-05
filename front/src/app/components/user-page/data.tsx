@@ -30,7 +30,7 @@ export const Dados = ({ user }: any) => {
   }, [msg]);
 
   useEffect(() => {
-    setUserId(sessionStorage.getItem("user_id")); 
+    setUserId(sessionStorage.getItem("user_id"));
   }, []);
 
   useEffect(() => {
@@ -75,21 +75,19 @@ export const Dados = ({ user }: any) => {
   };
 
   const submit = async (data: any) => {
+    console.log(data.nome);
+    const reqData = {
+      ...data,
+      ...(imageFile && { foto: imageFile.get("foto") }),
+    };
 
-    console.log(data.nome)
-    const reqData = { ...data, ...(imageFile && {foto: imageFile.get("foto")}) }
-    
     try {
       const token = sessionStorage.getItem("token");
-      const response = await server.putForm(
-        `/user/${user}`,
-        reqData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await server.putForm(`/user/${user}`, reqData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (response.status === 200) {
         setMsg("Dados atualizados com sucesso!");
         setEditMode(false);
@@ -107,21 +105,10 @@ export const Dados = ({ user }: any) => {
     if (file) {
       const formData = new FormData();
       formData.append("foto", file);
-      
 
       setImageFile(formData);
     }
   };
-
-  //const deleteAccount = async () => {
-  //  try {
-  //    await server.delete("/user/delete");
-  //    sessionStorage.removeItem("token");
-  //    router.push("/login");
-  //  } catch (error) {
-  //    console.error("Erro ao excluir conta:", error);
-  //  }
-  // };
 
   return (
     <section className="bg-red-700 text-gray-100 p-20 text-md">
@@ -220,13 +207,7 @@ export const Dados = ({ user }: any) => {
               <button type="submit" className="bg-green-500 p-2 rounded">
                 Salvar Dados
               </button>
-              <button
-                type="button"
-                className="bg-red-500 p-2 rounded"
-                //onClick={deleteAccount}
-              >
-                Excluir Conta
-              </button>
+
               <button
                 className=" bg-orange-500 px-4 py-1 rounded text-gray-100"
                 onClick={handleBackToEdit}

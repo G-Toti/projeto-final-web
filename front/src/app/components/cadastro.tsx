@@ -40,6 +40,7 @@ export const Cadastro = () => {
       if (response.status === 201) {
         setMsg("OK");
         sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("user_id", response.data.user.id);
       }
     } catch (error) {
       setMsg(error.response.data.mensagem.join(","));
@@ -47,7 +48,7 @@ export const Cadastro = () => {
   };
 
   if (msg === "OK") {
-    redirect("home-lista-musicas");
+    redirect(`/user/${sessionStorage.getItem("user_id")}`);
   }
 
   return (

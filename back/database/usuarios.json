@@ -101,5 +101,29 @@
     "senha": "$2b$10$slgRUaXKh8sxSafu9vGUOekyIyGOaul/7zKARwKYgQ33Y3qd/t8mi",
     "foto": "",
     "avaliacoes": []
+  },
+  {
+    "id": 12,
+    "nome": "TEste",
+    "email": "email5@gmail.com",
+    "senha": "$2b$10$u0Z2w/kTS0VzZSaWFC0kB.z5bQJOYuj4XGcfHZ8pbM1gxOq9UL0q2",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 13,
+    "nome": "AAA",
+    "email": "email6@gmail.com",
+    "senha": "$2b$10$/Tvc24ESOIPIv3OUfRu7ae.7VkJ4tAQpe1zfRZTu9iw10A0XJqvDa",
+    "foto": "",
+    "avaliacoes": []
+  },
+  {
+    "id": 14,
+    "nome": "a",
+    "email": "email8@gmail.com",
+    "senha": "$2b$10$PBzMwY.W3WQIL0CW5Nuu0eMv9P6mPmxKUjot1WxjzNTw84SdYOB7.",
+    "foto": "",
+    "avaliacoes": []
   }
 ]
