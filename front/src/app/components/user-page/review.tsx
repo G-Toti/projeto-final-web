@@ -21,7 +21,7 @@ export const Review = ({
   }
 
   return (
-    <Link href={encodeURIComponent("/edit/" + id)}>
+    <Link href={"/edit/" + id}>
       <section className="m-5 text-gray-100 rounded-md h-fit p-2">
         <div className={titleClass}>
           <div className="grow flex flex-row col-span-2">

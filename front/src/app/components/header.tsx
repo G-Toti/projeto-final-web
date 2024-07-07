@@ -13,11 +13,7 @@ export const Header = () => {
   const router = useRouter()
 
   useEffect(() => {
-    
       setToken(sessionStorage.getItem("token"));
-    
-
-    
   }, [pathName]);
 
 

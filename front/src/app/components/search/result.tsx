@@ -10,7 +10,7 @@ export const Result = ({ result }: { result: any }) => {
   );
 
   return (
-    <Link href={encodeURIComponent(`/review/${result.nome}/${result.artista}`)}>
+    <Link href={`/review/${result.nome}/${result.artista}`}>
       <div className="truncate flex flex-row bg-orange-900 w-[25rem] m-auto mt-3 rounded-lg text-orange-400 p-1">
         <Image
           className="rounded inline-block m-2 w-10 h-10"
