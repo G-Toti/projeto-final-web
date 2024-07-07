@@ -111,7 +111,7 @@ export const Dados = ({ user }: any) => {
   };
 
   return (
-    <section className="bg-orange-800 text-gray-100 p-20 text-md">
+    <section className="bg-black text-gray-100 p-20 text-md">
       <div className="flex flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center mt-20 m-auto">
           {imagem ? (

@@ -133,5 +133,15 @@
     "senha": "$2b$10$wlh/Rvw0EBh7AZvdUA42ru6UCVp7ky44WftZMvgRLC4mJdDTy42s.",
     "foto": "",
     "avaliacoes": []
+  },
+  {
+    "id": 16,
+    "nome": "Teste5",
+    "email": "teste5@gmail.com",
+    "senha": "$2b$10$5u.9OCQreFTZTPGQ0cxfNOVKSG9y5bsAGG3cUtszp8HQtVj3ajfXm",
+    "foto": "",
+    "avaliacoes": [
+      3
+    ]
   }
 ]

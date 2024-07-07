@@ -16,8 +16,6 @@ export const Header = () => {
       setToken(sessionStorage.getItem("token"));
   }, [pathName]);
 
-
-
  
   return (
     <header className="bg-black text-gray-100 p-4 sm:text-sm lg:text-xl drop-shadow-lg fixed w-full z-10">
