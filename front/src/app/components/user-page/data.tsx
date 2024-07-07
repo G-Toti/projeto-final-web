@@ -111,9 +111,9 @@ export const Dados = ({ user }: any) => {
   };
 
   return (
-    <section className="bg-red-700 text-gray-100 p-20 text-md">
+    <section className="bg-orange-800 text-gray-100 p-20 text-md">
       <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center mt-10">
+        <div className="flex flex-col justify-center items-center mt-20 m-auto">
           {imagem ? (
             <Image
               width={100}
@@ -146,7 +146,7 @@ export const Dados = ({ user }: any) => {
             <p className="text-center font-bold text-2xl justify-center items-center mt-6">
               {userData.nome}{" "}
             </p>
-            <p className="mb-4">{userData.email} </p>
+            <p className="mb-4 text-center">{userData.email} </p>
             {userId === user && (
               <button
                 className="flex justify-center bg-orange-500 px-4 py-1 rounded text-gray-100 hover:bg-orange-700 font-bold text-md transition hover:scale-110"
@@ -160,56 +160,58 @@ export const Dados = ({ user }: any) => {
         {editMode && (
           <form
             onSubmit={handleSubmit(submit)}
-            className="flex flex-col gap-4 mt-4"
+            className="flex flex-col gap-4 mt-4 w-1/3"
           >
-            <div className="flex flex-row">
+            <div className="flex flex-col justify-between gap-2 rounded">
               <label htmlFor="nome">Nome:</label>
               <input
                 type="text"
                 id="nome"
+                placeholder="Digite seu novo nome"
                 className="rounded p-2 text-black"
                 {...register("nome")}
               />
               <p className="text-red-500">{errors.nome?.message}</p>
-            </div>
-            <div>
+
               <label htmlFor="email">E-mail:</label>
               <input
                 type="text"
                 id="email"
+                placeholder="Digite seu novo e-mail"
                 className="rounded p-2 text-black"
                 {...register("email")}
               />
               <p className="text-red-500">{errors.email?.message}</p>
-            </div>
-            <div>
+
               <label htmlFor="senha">Senha:</label>
               <input
                 type="password"
                 id="senha"
+                placeholder="Digite sua nova senha"
                 className="rounded p-2 text-black"
                 {...register("senha")}
               />
               <p className="text-red-500">{errors.senha?.message}</p>
-            </div>
 
-            <div>
               <label htmlFor="">Confirmar Senha:</label>
               <input
                 type="password"
                 id="senha"
+                placeholder="Repita sua nova senha"
                 className="rounded p-2 text-black"
                 {...register("senha")}
               ></input>
             </div>
-
-            <div className="flex gap-4">
-              <button type="submit" className="bg-green-500 p-2 rounded">
+            <div className="flex gap-4 justify-end">
+              <button
+                type="submit"
+                className="bg-green-600 px-4 py-1 rounded transition hover:scale-110 hover:bg-green-700 font-bold text-md"
+              >
                 Salvar Dados
               </button>
 
               <button
-                className=" bg-orange-500 px-4 py-1 rounded text-gray-100"
+                className=" bg-orange-500 px-4 py-1 rounded text-gray-100 transition hover:scale-110 hover:bg-orange-700 font-bold text-md"
                 onClick={handleBackToEdit}
               >
                 Voltar

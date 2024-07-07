@@ -19,11 +19,11 @@ export const SearchBar = ({}) => {
   };
   return (
     <form
-      className="m-auto w-96 rounded-full bg-orange-950 inline-block text-sm"
+      className="m-auto w-96 rounded bg-orange-900 inline-block text-sm"
       onSubmit={handleSubmit(submit)}
     >
       <input
-        className="bg-orange-900 text-orange-100 w-full rounded-full p-1 pl-3 pr-3"
+        className="bg-orange-500 text-orange-100 w-full rounded p-1 pl-3 pr-3"
         {...register("query")}
       ></input>
     </form>

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Cadastro } from "../components/cadastro";
-import { Footer } from "../components/footer";
 
 const Page = () => {
   return (
@@ -10,7 +9,6 @@ const Page = () => {
       <div>
         <Cadastro />
       </div>
-      <Footer />
     </main>
   );
 };

@@ -125,5 +125,13 @@
     "senha": "$2b$10$PBzMwY.W3WQIL0CW5Nuu0eMv9P6mPmxKUjot1WxjzNTw84SdYOB7.",
     "foto": "",
     "avaliacoes": []
+  },
+  {
+    "id": 15,
+    "nome": "Carol Carles",
+    "email": "carol@teste.com",
+    "senha": "$2b$10$wlh/Rvw0EBh7AZvdUA42ru6UCVp7ky44WftZMvgRLC4mJdDTy42s.",
+    "foto": "",
+    "avaliacoes": []
   }
 ]

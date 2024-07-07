@@ -30,21 +30,17 @@ export const Login = () => {
 
   const submit = async (data: any) => {
     try {
-      const response = await server.post(
-        "/user/login",
-        data
-      );
+      const response = await server.post("/user/login", data);
 
-      console.log(response)
+      console.log(response);
 
       const token = response.data.token;
       const id = response.data.user.id;
 
-      setUserId(id)
+      setUserId(id);
 
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("user_id", id);
-
 
       setMsg("Usuário Autenticado");
     } catch (error) {
@@ -56,7 +52,7 @@ export const Login = () => {
     if (msg.includes("Usuário Autenticado")) {
       redirect(`user/${userId}`);
     }
-  }, [msg])
+  }, [msg]);
 
   return (
     <section className="bg-black text-gray-100 p-20 text-md">
@@ -109,9 +105,11 @@ export const Login = () => {
               </a>
             </Link>
           </div>
-          <a href="#home" className="font-bold pt-2 underline">
-            Voltar
-          </a>
+          <Link legacyBehavior href="/">
+            <a href="#home" className="font-bold pt-2 underline">
+              Voltar
+            </a>
+          </Link>
         </div>
         <div className="p-20 w-2/4">
           <img
